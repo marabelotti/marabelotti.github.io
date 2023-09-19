@@ -1,0 +1,209 @@
+html, body {
+	margin: 0px;
+	font-family: 'Aleo', serif;
+	background-color: rgb(123, 116, 123);
+	min-width: min-content;
+	min-height: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+a:link, a:visited{
+	color: inherit;
+	text-decoration: none; 
+}
+a:hover, a:active{
+	color: violet;
+}
+
+canvas{
+	position: absolute;
+}	
+
+.center{
+	align-items: center;
+}
+
+.padBig{
+	padding: 3rem;
+}
+
+.padSmall{
+	padding: 2rem;
+}
+
+.padNano{
+	padding: 1rem;
+}
+
+.max{
+	max-width: 20rem;
+}
+
+.right{
+	text-align: right;
+}
+
+.border{
+	border-style: none;
+}
+
+.border-white{
+	border-style:solid;
+	border-radius: 4%;
+	border-color: white;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-width: 1px;
+}
+
+/* Here we use flex cause they respond to the z-index, even if static*/
+.flex{
+	display: flex;
+	z-index: 2;
+}
+
+@media (max-width: 1079px) {
+    .ws-hidden {
+        display: none;
+    }
+
+}
+
+@media (min-width: 1079px) {
+    .wb-hidden {
+        display: none;
+    }
+
+}
+
+.col{
+	flex-direction: column;
+	row-gap: 0.5rem;
+	column-gap: 1.5rem;
+}
+
+
+.row{
+	column-gap: 1.5rem;
+	row-gap: 0.5rem;
+}
+
+
+.rounded{
+	border-radius: .75rem;
+}
+
+.distribute-evenly{
+	justify-content: space-evenly;
+}
+
+.distribute-center{
+	justify-content: center;
+}
+
+
+.linkWhite a:link{
+	color: white;
+	text-decoration: none; 
+}
+
+.linkWhite a:visited{
+	color: white;
+	text-decoration: none; 
+}
+
+.linkWhite	a:hover{
+	color: violet;
+}
+
+.linkWhite  a:active{
+	color: violet;
+}
+
+.center-text{
+	text-align: center;
+}
+
+.white{
+	color: white;
+}
+
+.red{
+	background-color:  rgba(234, 57, 3, 0.3);
+	.btn::after{
+		background-color:  rgba(234, 57, 3, 0.3);
+	}
+}
+
+.yellow{
+	background-color:  rgba(255, 200, 0, 0.3);
+	.btn::after{
+		background-color:  rgba(255, 200, 0, 0.4);
+	}
+}
+
+.green{
+	background-color:  rgba(86, 217, 66, 0.3);
+	.btn::after{
+		background-color:  rgba(86, 217, 66, 0.3);
+	}
+}
+
+.btn{
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  z-index: 1;
+}
+
+.btn:after {
+  content: "";
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.btn:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .btn-52 {
+    padding: 13px 50px 13px;
+  }
+}
+
+*, ::before, ::after{
+	box-sizing: border-box;
+}
+
+.gap{
+	margin-top: 0.3rem;
+}
+
+.text-gray{
+	color: rgb(187, 185, 185);
+}
+
+.decrease-font{
+	font-size: 0.8rem;
+}
+
+.wrap{
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
