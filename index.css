@@ -1,10 +1,14 @@
-html, body {
+html{
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
 	margin: 0px;
 	font-family: 'Aleo', serif;
 	background-color: rgb(123, 116, 123);
-	min-width: min-content;
+	/*min-width: min-content;*/
 	min-height: 100%;
-	-webkit-text-size-adjust: 100%;
 }
 
 a:link, a:visited{
@@ -17,18 +21,24 @@ a:hover, a:active{
 
 canvas{
 	position: absolute;
+	margin: 1.5rem;
 }	
+
+img{
+	max-width: 70%;
+	height: auto;
+}
 
 .center{
 	align-items: center;
 }
 
-.padBig{
-	padding: 3rem;
+.padMedium{
+	padding: 1.5rem;
 }
 
-.padSmall{
-	padding: 2rem;
+.padBig{
+	padding: 3rem;
 }
 
 .padNano{
@@ -62,17 +72,25 @@ canvas{
 	z-index: 2;
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 857px) {
     .ws-hidden {
         display: none;
     }
 
+	img{
+		max-width: 30%;
+	}
+
 }
 
-@media (min-width: 1079px) {
+@media (min-width: 857px) {
     .wb-hidden {
         display: none;
     }
+
+	main{
+		padding-top: 3rem !important;
+	}
 
 }
 
@@ -87,7 +105,6 @@ canvas{
 	column-gap: 1.5rem;
 	row-gap: 0.5rem;
 }
-
 
 .rounded{
 	border-radius: .75rem;
@@ -207,3 +224,4 @@ canvas{
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+
