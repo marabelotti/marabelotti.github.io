@@ -1,14 +1,11 @@
 html{
 	height: 100%;
-	-webkit-text-size-adjust: 100%;
 }
 
 body {
 	margin: 0px;
 	font-family: 'Aleo', serif;
 	background-color: rgb(123, 116, 123);
-	/*min-width: min-content;*/
-	min-height: 100%;
 }
 
 a:link, a:visited{
@@ -46,7 +43,7 @@ img{
 }
 
 .max{
-	max-width: 20rem;
+	max-width: 30rem;
 }
 
 .right{
@@ -81,6 +78,10 @@ img{
 		max-width: 30%;
 	}
 
+	html{
+		font-size: 22px;
+	}
+
 }
 
 @media (min-width: 857px) {
@@ -90,6 +91,10 @@ img{
 
 	main{
 		padding-top: 3rem !important;
+	}
+
+	html{
+		font-size: 26px;
 	}
 
 }
@@ -224,4 +229,6 @@ img{
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+
+
 
