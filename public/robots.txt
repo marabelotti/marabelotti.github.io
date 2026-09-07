@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marabelotti.github.io/sitemap.xml

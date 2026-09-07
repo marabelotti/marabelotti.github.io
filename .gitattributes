@@ -1,0 +1,17 @@
+# Travel photographs are stored with Git LFS so the main repo history stays lean.
+#
+# One-time setup on a fresh machine:
+#   sudo apt-get install git-lfs   # or: brew install git-lfs
+#   git lfs install
+# If photos were committed before LFS was set up, convert them once with:
+#   git lfs migrate import --include="src/content/travels/**/*.jpg,src/content/travels/**/*.jpeg,src/content/travels/**/*.png"
+src/content/travels/**/*.jpg   filter=lfs diff=lfs merge=lfs -text
+src/content/travels/**/*.jpeg  filter=lfs diff=lfs merge=lfs -text
+src/content/travels/**/*.JPG   filter=lfs diff=lfs merge=lfs -text
+src/content/travels/**/*.png   filter=lfs diff=lfs merge=lfs -text
+
+# Keep line endings sane.
+* text=auto eol=lf
+src/content/travels/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+src/content/travels/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+src/content/travels/**/*.png filter=lfs diff=lfs merge=lfs -text
