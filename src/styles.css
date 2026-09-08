@@ -1,0 +1,421 @@
+@import '@fontsource/aleo/latin-400.css';
+@import '@fontsource/aleo/latin-400-italic.css';
+@import '@fontsource/aleo/latin-700.css';
+@import '@fontsource-variable/fraunces/full.css';
+@import '@fontsource-variable/fraunces/full-italic.css';
+
+/* ------------------------------------------------------------------ *
+ *  Design tokens
+ * ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  --font-body: 'Aleo', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-display: 'Fraunces Variable', 'Fraunces', 'Aleo', Georgia, serif;
+
+  /* fluid type scale (≈1.22 ratio) */
+  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.14rem);
+  --step-1: clamp(1.2rem, 1.10rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.45rem, 1.28rem + 0.85vw, 2rem);
+  --step-3: clamp(1.75rem, 1.45rem + 1.5vw, 2.85rem);
+  --step-4: clamp(2.1rem, 1.55rem + 2.75vw, 4rem);
+  --step-5: clamp(2.6rem, 1.6rem + 5vw, 5.75rem);
+
+  /* spacing scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.25rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5.5rem;
+  --space-3xl: 8rem;
+
+  --measure: 68ch;
+  --page-max: 72rem;
+  --radius: 0.7rem;
+  --radius-lg: 1.1rem;
+
+  /* dusty mauve palette — light */
+  --bg: #ece7ec;
+  --bg-tint: #e4dde4;
+  --surface: #f5f1f5;
+  --surface-2: #ded6dd;
+  --ink: #292330;
+  --ink-muted: #6c6374;
+  --ink-faint: #928a99;
+  --border: #cec5cd;
+  --border-strong: #b4a9b5;
+
+  --accent: #7a3ff0;
+  --accent-strong: #5b23c9;
+  --accent-soft: #efe6ff;
+  --on-accent: #ffffff;
+
+  /* desaturated hues for the research card top-edge accents */
+  --card-accent-1: #7c5cc4;
+  --card-accent-2: #bd7d92;
+  --card-accent-3: #7f9f80;
+
+  --shadow-1: 0 1px 2px rgba(41, 35, 48, 0.06), 0 6px 20px -12px rgba(41, 35, 48, 0.25);
+  --shadow-2: 0 2px 6px rgba(41, 35, 48, 0.08), 0 24px 48px -24px rgba(41, 35, 48, 0.35);
+
+  --figures-opacity: 0.5;
+  --figures-blend: multiply;
+  --figures-filter: grayscale(1) contrast(1.05);
+
+  --outline-width: 1.4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --bg: #161219;
+    --bg-tint: #1c1720;
+    --surface: #211b26;
+    --surface-2: #2b2431;
+    --ink: #ece5ef;
+    --ink-muted: #a89daf;
+    --ink-faint: #7d7286;
+    --border: #362d3d;
+    --border-strong: #4a3f52;
+
+    --accent: #b98cff;
+    --accent-strong: #cba9ff;
+    --accent-soft: #2a2135;
+    --on-accent: #1a1420;
+
+    --card-accent-1: #9a7fd8;
+    --card-accent-2: #cf94a6;
+    --card-accent-3: #97b598;
+
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -14px rgba(0, 0, 0, 0.7);
+    --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.45), 0 28px 56px -28px rgba(0, 0, 0, 0.8);
+
+    --figures-opacity: 0.34;
+    --figures-blend: screen;
+    --figures-filter: grayscale(1) invert(1) contrast(1.05);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #161219;
+  --bg-tint: #1c1720;
+  --surface: #211b26;
+  --surface-2: #2b2431;
+  --ink: #ece5ef;
+  --ink-muted: #a89daf;
+  --ink-faint: #7d7286;
+  --border: #362d3d;
+  --border-strong: #4a3f52;
+
+  --accent: #b98cff;
+  --accent-strong: #cba9ff;
+  --accent-soft: #2a2135;
+  --on-accent: #1a1420;
+
+  --card-accent-1: #9a7fd8;
+  --card-accent-2: #cf94a6;
+  --card-accent-3: #97b598;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -14px rgba(0, 0, 0, 0.7);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.45), 0 28px 56px -28px rgba(0, 0, 0, 0.8);
+
+  --figures-opacity: 0.34;
+  --figures-blend: screen;
+  --figures-filter: grayscale(1) invert(1) contrast(1.05);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Reset / base
+ * ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.62;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: from-font;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 420;
+  line-height: 1.08;
+  font-variation-settings: 'opsz' 96, 'SOFT' 30, 'WONK' 1;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Shared utilities
+ * ------------------------------------------------------------------ */
+
+.page {
+  width: min(100% - 2 * var(--space-m), var(--page-max));
+  margin-inline: auto;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-top: var(--space-s);
+}
+
+.prose h2 {
+  font-size: var(--step-2);
+  margin-top: var(--space-l);
+}
+
+.prose h3 {
+  font-size: var(--step-1);
+  margin-top: var(--space-m);
+}
+
+.prose a {
+  text-decoration: underline;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-s);
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.prose code {
+  font-family: 'SF Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--surface-2);
+  padding: 0.12em 0.38em;
+  border-radius: 4px;
+}
+
+.prose pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-s);
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.86em;
+}
+
+.prose img {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* Outline display type — the site's signature */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.02;
+  font-variation-settings: 'opsz' 140, 'SOFT' 50, 'WONK' 1, 'wght' 460;
+  letter-spacing: -0.005em;
+}
+
+.display--outline {
+  color: transparent;
+  -webkit-text-stroke: var(--outline-width) var(--ink);
+  paint-order: stroke fill;
+}
+
+.display--outline.display--accent {
+  -webkit-text-stroke-color: var(--accent);
+}
+
+@supports not (-webkit-text-stroke: 1px currentColor) {
+  .display--outline {
+    color: var(--ink);
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+.link-plain {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-plain:hover {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-m);
+  box-shadow: var(--shadow-1);
+}
+
+/* research figure cards: translucent coloured panel + a stronger top edge.
+   The fill is a hue mixed into a semi-transparent white base, so the page shows
+   through a little yet the panel stays light enough (in both themes) for the
+   figures to read without a backing. Card contents are pinned to dark ink. */
+.card--violet,
+.card--rose,
+.card--sage {
+  --ink: #292330;
+  --ink-muted: #5f5566;
+  --bg: #fdfcff;
+  /* the translucent base the hue is mixed into (white @ ~55%) */
+  --panel-glass: #ffffff72;
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.card--violet {
+  background: color-mix(in srgb, var(--card-accent-1) 26%, var(--panel-glass));
+  border: 1px solid color-mix(in srgb, var(--card-accent-1) 50%, #fff);
+  border-top: 3px solid var(--card-accent-1);
+}
+
+.card--rose {
+  background: color-mix(in srgb, var(--card-accent-2) 26%, var(--panel-glass));
+  border: 1px solid color-mix(in srgb, var(--card-accent-2) 50%, #fff);
+  border-top: 3px solid var(--card-accent-2);
+}
+
+.card--sage {
+  background: color-mix(in srgb, var(--card-accent-3) 29%, var(--panel-glass));
+  border: 1px solid color-mix(in srgb, var(--card-accent-3) 50%, #fff);
+  border-top: 3px solid var(--card-accent-3);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.7em 1.3em;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.button:hover {
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.button--accent {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.button--accent:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
