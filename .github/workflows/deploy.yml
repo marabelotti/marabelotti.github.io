@@ -29,7 +29,12 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build
+      # First build can hit an intermittent asset-reference race: Analog builds the
+      # client + SSR environments concurrently and vite-imagetools' emitted-asset IDs
+      # leak between them (fails reliably on a cold Angular cache, i.e. every CI run).
+      # The retry runs against a warm cache and is deterministic. Remove once
+      # analogjs/analog serialises the environment builds.
+      - run: npm run build || npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
