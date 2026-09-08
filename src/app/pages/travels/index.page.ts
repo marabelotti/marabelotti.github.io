@@ -24,8 +24,7 @@ export const routeMeta: RouteMeta = {
       <p class="eyebrow">Places, mostly</p>
       <h1 class="display display--outline">Travels</h1>
       <p class="muted lede">
-        Photographs from trips, grouped roughly by where and when. No captions
-        unless something needs one.
+        Photographs from trips
       </p>
     </header>
 

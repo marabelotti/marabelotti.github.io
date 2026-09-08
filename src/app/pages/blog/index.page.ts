@@ -23,7 +23,7 @@ export const routeMeta: RouteMeta = {
       <p class="eyebrow">Thoughts, unsorted</p>
       <h1 class="display display--outline">Blog</h1>
       <p class="muted lede">
-        Occasional notes — about mathematics, software, and whatever else has
+        Occasional notes — about whatever has
         been on my mind.
       </p>
     </header>

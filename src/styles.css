@@ -347,7 +347,7 @@ p {
   --ink-muted: #5f5566;
   --bg: #fdfcff;
   /* the translucent base the hue is mixed into (white @ ~55%) */
-  --panel-glass: #ffffff8c;
+  --panel-glass: #ffffff72;
   color: var(--ink);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);

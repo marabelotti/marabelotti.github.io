@@ -9,7 +9,7 @@ export const routeMeta: RouteMeta = {
   title: pageTitle(),
   meta: pageMeta({
     description:
-      'Mathematician and software consultant. Writing, travel photographs, and past research.',
+      'Mathematician and senior software consultant. Writing, travel photographs, and past research.',
     path: '/',
   }),
 };
@@ -21,7 +21,7 @@ export const routeMeta: RouteMeta = {
     <section class="hero">
       <app-math-figures [density]="16" />
       <div class="page hero__inner">
-        <p class="eyebrow">Mathematician · Software consultant</p>
+        <p class="eyebrow">Mathematician · Senior Software consultant</p>
         <h1 class="display display--outline hero__title">
           Mara<br />Belotti
         </h1>
@@ -31,15 +31,10 @@ export const routeMeta: RouteMeta = {
             I'm a mathematician working as a software consultant at
             <a href="https://www.tngtech.com" target="_blank" rel="noopener">TNG Technology</a>.
             Before that I did a PhD in mathematics at TU Berlin — discrete and
-            algebraic geometry, in
-            <a href="https://page.math.tu-berlin.de/~joswig/" target="_blank" rel="noopener">Michael Joswig</a>'s
-            group.
+            algebraic geometry, in Michael Joswig's group.
           </p>
           <p>
-            This site is a slow-growing collection: a few
-            <a routerLink="/blog">written thoughts</a>, photographs from
-            <a routerLink="/travels">trips</a>, and my earlier
-            <a routerLink="/research">research</a>.
+            This site is a slow-growing collection: a few written thoughts, photographs from trips, and my earlier research.
           </p>
           <div class="hero__actions">
             <a class="button button--accent" href="/CV.pdf" target="_blank" rel="noopener">

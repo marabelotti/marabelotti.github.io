@@ -26,8 +26,7 @@ interface Publication {
       <p class="eyebrow">Before the code</p>
       <h1 class="display display--outline">Mathematics</h1>
       <p class="muted lede">
-        A PhD at TU Berlin in discrete and algebraic geometry, and the master's
-        work before it. Papers, and a few pictures I'm still fond of.
+        Papers, and a few pictures I'm still fond of.
       </p>
     </header>
 
@@ -191,9 +190,9 @@ export default class ResearchPage {
     },
     {
       title: 'Discrete geometry of Cox rings of blow-ups of P³',
-      href: 'https://arxiv.org/abs/2208.05258',
+      href: 'https://pubs.ams.org/MCOM/2026-95-362/S0025-5718-2026-04143-2',
       authors: 'Panizzut M.',
-      venue: 'Submitted',
+      venue: 'Mathematics of Computation (2026)',
     },
     {
       title:
@@ -211,13 +210,13 @@ export default class ResearchPage {
     },
     {
       title: 'Moduli spaces of geometric graphs',
-      href: 'https://arxiv.org/abs/2107.11338',
+      href: 'https://msp.org/agt/2024/24-4/p08.xhtml',
       authors: 'Lerario A. and Newman A.',
       venue: 'Algebraic & Geometric Topology (2023)',
     },
     {
       title: 'Real lines on random cubic surfaces',
-      href: 'https://arxiv.org/abs/1910.07326',
+      href: 'https://link.springer.com/article/10.1007/s40598-021-00182-y',
       authors: 'Meroni C. and Ait El Manssour R.',
       venue: 'Arnold Mathematical Journal (2021)',
     },
