@@ -46,7 +46,7 @@ const FIGURE_SRCS = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/figures/${n}.png`);
     canvas {
       width: 100%;
       height: 100%;
-      filter: grayscale(1) contrast(1.05);
+      filter: var(--figures-filter, grayscale(1) contrast(1.05));
       opacity: var(--figures-opacity, 0.4);
       mix-blend-mode: var(--figures-blend, normal);
     }

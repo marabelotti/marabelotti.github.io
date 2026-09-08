@@ -48,7 +48,7 @@ interface Publication {
     <section class="page">
       <h2 class="display section-title">Pictures I'm fond of</h2>
       <div class="cards">
-        <article class="card tint-amber">
+        <article class="card card--violet">
           <h3>Geometric graphs</h3>
           <img src="/figures/8.png" alt="A geometric graph" loading="lazy" />
           <p>The subject of my master's thesis.</p>
@@ -62,7 +62,7 @@ interface Publication {
           </a>
         </article>
 
-        <article class="card tint-green">
+        <article class="card card--rose">
           <h3>Constrained realization spaces</h3>
           <img
             src="/figures/3.png"
@@ -80,7 +80,7 @@ interface Publication {
           </a>
         </article>
 
-        <article class="card tint-red">
+        <article class="card card--sage">
           <h3>Counting cubic hypersurfaces</h3>
           <img
             src="/figures/1.png"
@@ -172,12 +172,6 @@ interface Publication {
       align-self: center;
       max-height: 190px;
       width: auto;
-      mix-blend-mode: multiply;
-    }
-
-    :root[data-theme='dark'] .card img,
-    :where(:root:not([data-theme='light'])) .card img {
-      mix-blend-mode: normal;
     }
 
     .card .button {

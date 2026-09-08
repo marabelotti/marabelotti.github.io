@@ -55,18 +55,17 @@
   --accent-soft: #efe6ff;
   --on-accent: #ffffff;
 
-  --card-red-bg: #f4dcd2;
-  --card-red-bd: #e0ab95;
-  --card-amber-bg: #f3e6c6;
-  --card-amber-bd: #ddc082;
-  --card-green-bg: #d9e8d0;
-  --card-green-bd: #a7cb95;
+  /* desaturated hues for the research card top-edge accents */
+  --card-accent-1: #7c5cc4;
+  --card-accent-2: #bd7d92;
+  --card-accent-3: #7f9f80;
 
   --shadow-1: 0 1px 2px rgba(41, 35, 48, 0.06), 0 6px 20px -12px rgba(41, 35, 48, 0.25);
   --shadow-2: 0 2px 6px rgba(41, 35, 48, 0.08), 0 24px 48px -24px rgba(41, 35, 48, 0.35);
 
   --figures-opacity: 0.5;
   --figures-blend: multiply;
+  --figures-filter: grayscale(1) contrast(1.05);
 
   --outline-width: 1.4px;
 }
@@ -90,18 +89,16 @@
     --accent-soft: #2a2135;
     --on-accent: #1a1420;
 
-    --card-red-bg: #3a2019;
-    --card-red-bd: #5f3325;
-    --card-amber-bg: #352c19;
-    --card-amber-bd: #574525;
-    --card-green-bg: #212f1b;
-    --card-green-bd: #3b512f;
+    --card-accent-1: #9a7fd8;
+    --card-accent-2: #cf94a6;
+    --card-accent-3: #97b598;
 
     --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -14px rgba(0, 0, 0, 0.7);
     --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.45), 0 28px 56px -28px rgba(0, 0, 0, 0.8);
 
-    --figures-opacity: 0.32;
+    --figures-opacity: 0.34;
     --figures-blend: screen;
+    --figures-filter: grayscale(1) invert(1) contrast(1.05);
   }
 }
 
@@ -123,18 +120,16 @@
   --accent-soft: #2a2135;
   --on-accent: #1a1420;
 
-  --card-red-bg: #3a2019;
-  --card-red-bd: #5f3325;
-  --card-amber-bg: #352c19;
-  --card-amber-bd: #574525;
-  --card-green-bg: #212f1b;
-  --card-green-bd: #3b512f;
+  --card-accent-1: #9a7fd8;
+  --card-accent-2: #cf94a6;
+  --card-accent-3: #97b598;
 
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -14px rgba(0, 0, 0, 0.7);
   --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.45), 0 28px 56px -28px rgba(0, 0, 0, 0.8);
 
-  --figures-opacity: 0.32;
+  --figures-opacity: 0.34;
   --figures-blend: screen;
+  --figures-filter: grayscale(1) invert(1) contrast(1.05);
 }
 
 /* ------------------------------------------------------------------ *
@@ -341,19 +336,39 @@ p {
   box-shadow: var(--shadow-1);
 }
 
-.tint-red {
-  background: var(--card-red-bg);
-  border-color: var(--card-red-bd);
+/* research figure cards: translucent coloured panel + a stronger top edge.
+   The fill is a hue mixed into a semi-transparent white base, so the page shows
+   through a little yet the panel stays light enough (in both themes) for the
+   figures to read without a backing. Card contents are pinned to dark ink. */
+.card--violet,
+.card--rose,
+.card--sage {
+  --ink: #292330;
+  --ink-muted: #5f5566;
+  --bg: #fdfcff;
+  /* the translucent base the hue is mixed into (white @ ~55%) */
+  --panel-glass: #ffffff8c;
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 
-.tint-amber {
-  background: var(--card-amber-bg);
-  border-color: var(--card-amber-bd);
+.card--violet {
+  background: color-mix(in srgb, var(--card-accent-1) 26%, var(--panel-glass));
+  border: 1px solid color-mix(in srgb, var(--card-accent-1) 50%, #fff);
+  border-top: 3px solid var(--card-accent-1);
 }
 
-.tint-green {
-  background: var(--card-green-bg);
-  border-color: var(--card-green-bd);
+.card--rose {
+  background: color-mix(in srgb, var(--card-accent-2) 26%, var(--panel-glass));
+  border: 1px solid color-mix(in srgb, var(--card-accent-2) 50%, #fff);
+  border-top: 3px solid var(--card-accent-2);
+}
+
+.card--sage {
+  background: color-mix(in srgb, var(--card-accent-3) 29%, var(--panel-glass));
+  border: 1px solid color-mix(in srgb, var(--card-accent-3) 50%, #fff);
+  border-top: 3px solid var(--card-accent-3);
 }
 
 .button {
