@@ -8,7 +8,7 @@ place: Iceland
 summary: >-
   A road trip along the Ring road
 cover: iceland-cover
-order: 1
+order: 2
 draft: false
 #captions:
 #  01-fractal-coast: Where the cliffs meet the set.
